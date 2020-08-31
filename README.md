@@ -1,7 +1,7 @@
 # ** FRONTEND-PROJECT Lvl 1 **
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
-![Node.js CI](https://github.com/actions/alex-kurkov/workflows/Node.js%20CI/badge.svg)
+![Node.js CI](https://github.com/alex-kurkov/frontend-project-lvl1/workflows/Node.js%20CI/badge.svg)
 assembled and tuned by **Alex Kurkov**,
 _Hexlet student_
 

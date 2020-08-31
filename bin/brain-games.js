@@ -1,2 +1,8 @@
 #!/usr/bin/env node
-console.log("Welcome to the Brain Games!")
+import User from './User.js';
+
+const currentUser = new User();
+
+console.log('Welcome to the Brain Games!');
+currentUser.getUserName();
+currentUser.greetUser();

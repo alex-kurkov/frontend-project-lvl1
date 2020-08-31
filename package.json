@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
-    "type": "module",
+    "type": "git",
     "url": "git+https://github.com/alex-kurkov/frontend-project-lvl1.git"
   },
   "keywords": [
@@ -23,8 +23,16 @@
     "url": "https://github.com/alex-kurkov/frontend-project-lvl1/issues"
   },
   "homepage": "https://github.com/alex-kurkov/frontend-project-lvl1#readme",
-  "dependencies": {},
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  },
+  "type": "module",
   "bin": {
     "brain-games": "bin/brain-games.js"
+  },
+  "devDependencies": {
+    "eslint": "^7.7.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0"
   }
 }

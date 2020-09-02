@@ -8,7 +8,10 @@ _Hexlet student_
 ### **Content**
 ---------------------
 
-Educational app applying basic JS features: modules, classes, etc
+Educational app applying basic JS features run on Node
+Contains 3 simple-logic games
+1. Brain-even game (see gaming process at [ASCIINEMA](https://asciinema.org/a/sKIRnD0nmO0w6rZO6oV8mwfcS))
+
 
 ### **Key features**
 ---------------------

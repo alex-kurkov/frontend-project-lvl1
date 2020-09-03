@@ -1,6 +1,5 @@
 // вообще очень логично все это дело реализовать через класс Quiz со свойствами
 // this.counter this.userName и соответсвующими методами
-
 export const getRandomInteger = (upperLimit = 100) => Math.ceil(Math.random() * upperLimit);
 
 export const checkAnswer = (correctAnswer, userAnswer) => userAnswer === correctAnswer;

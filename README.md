@@ -14,6 +14,7 @@ Educational app applying basic JS features run on Node
 Contains 3 simple-logic games:
 1. Brain-even game (see gaming process at [ASCIINEMA](https://asciinema.org/a/sKIRnD0nmO0w6rZO6oV8mwfcS))
 2. Brain-calc arithmetics game (see gaming process at [ASCIINEMA](https://asciinema.org/a/GL2o1epf6ZAM7eT8TM3Pqtzuh))
+3. 'Find greatest common divisor game' (see gaming process at [ASCIINEMA](https://asciinema.org/a/qxRgVpbSoSfWauzrzpAUh1hLh))
 
 
 ### **Key features**

@@ -3,7 +3,7 @@ import {
   getUserName,
   greetUser,
 } from '../src/cli.js';
-import evenQuiz from '../games/even-quiz.js';
+import evenQuiz from '../games/evenQuiz.js';
 
 const userName = getUserName();
 greetUser(userName);

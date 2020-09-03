@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 import { getUserName, greetUser } from '../src/cli.js';
-import gcdQuiz from '../games/gcdQuiz.js';
+import progressionQuiz from '../games/progressionQuiz.js';
 
 console.log('Welcome to the Brain Games!');
 const userName = getUserName();
 greetUser(userName);
 
-console.log('Find the greatest common divisor of given numbers.');
+console.log('What number is missing in the progression?');
 
-gcdQuiz(userName);
+progressionQuiz(userName);
 
 console.log(`Congratulations, ${userName}!`);

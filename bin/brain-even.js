@@ -5,6 +5,7 @@ import {
 } from '../src/cli.js';
 import evenQuiz from '../games/evenQuiz.js';
 
+console.log('Welcome to the Brain Games!');
 const userName = getUserName();
 greetUser(userName);
 console.log('Answer "yes" if the number is even, otherwise answer "no".');

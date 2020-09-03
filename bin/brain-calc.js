@@ -2,6 +2,7 @@
 import { getUserName, greetUser } from '../src/cli.js';
 import calcQuiz from '../games/calcQuiz.js';
 
+console.log('Welcome to the Brain Games!');
 const userName = getUserName();
 greetUser(userName);
 

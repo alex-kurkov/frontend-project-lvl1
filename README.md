@@ -16,6 +16,7 @@ Contains simple-logic games:
 2. Brain-calc arithmetics game (see gaming process at [ASCIINEMA](https://asciinema.org/a/GL2o1epf6ZAM7eT8TM3Pqtzuh))
 3. 'Find greatest common divisor game' (see gaming process at [ASCIINEMA](https://asciinema.org/a/qxRgVpbSoSfWauzrzpAUh1hLh))
 4. 'Missing number game' (see gaming process at [ASCIINEMA](https://asciinema.org/a/EB3OQ9HDrlirvao5hlFgr46ck))
+5. 'Is Prime?' game (see gaming process at [ASCIINEMA](https://asciinema.org/a/VUKaEm1fORDQ4olccZPKOEWWU))
 
 
 ### **Key features**

@@ -1,10 +1,9 @@
 import readlineSync from 'readline-sync';
 import {
   getRandomInteger,
-  checkAnswer,
   consoleMessage,
-} from '../src/index.js';
-import getGcd from '../src/getGcd.js';
+} from '../index.js';
+import getGcd from '../getGcd.js';
 
 export default (user) => {
   let counter = 0;
@@ -17,7 +16,7 @@ export default (user) => {
     console.log(`Question: ${firstNumber} ${secondNumber}`);
 
     const userAnswer = Number(readlineSync.question('Your answer: '));
-    const isRightAnswer = checkAnswer(correctAnswer, userAnswer);
+    const isRightAnswer = correctAnswer === userAnswer;
     consoleMessage(isRightAnswer, correctAnswer, userAnswer, user);
     counter = isRightAnswer
       ? counter += 1

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { getUserName, greetUser } from '../src/cli.js';
-import primeQuiz from '../games/primeQuiz.js';
+import primeQuiz from '../src/games/prime.js';
 
 console.log('Welcome to the Brain Games!');
 const userName = getUserName();

@@ -1,8 +1,9 @@
-import readlineSync from 'readline-sync';
 import {
-  getRandomInteger,
-  consoleMessage,
+  getRandomInteger, consoleMessage,
 } from '../index.js';
+import {
+  greetAndGetUserName, getAnswer, congratulate,
+} from '../cli.js';
 
 const progressionLength = 10;
 
@@ -26,7 +27,11 @@ const makeQuestionString = (progression, hiddenIndex) => {
   return `${head} .. ${tail}`;
 };
 
-export default (user) => {
+export default () => {
+  const user = greetAndGetUserName();
+
+  console.log('What number is missing in the progression?');
+
   let counter = 0;
   while (counter < 3) {
     const progression = makeProgression();
@@ -36,11 +41,12 @@ export default (user) => {
 
     console.log(`Question: ${stringToShow}`);
 
-    const userAnswer = Number(readlineSync.question('Your answer: '));
+    const userAnswer = Number(getAnswer());
     const isRightAnswer = correctAnswer === userAnswer;
     consoleMessage(isRightAnswer, correctAnswer, userAnswer, user);
     counter = isRightAnswer
       ? counter += 1
       : 0;
   }
+  congratulate(user);
 };

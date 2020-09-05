@@ -1,11 +1,15 @@
-import readlineSync from 'readline-sync';
 import {
-  getRandomInteger,
-  consoleMessage,
-  getRandomOperation,
+  getRandomInteger, consoleMessage, getRandomOperation,
 } from '../index.js';
+import {
+  greetAndGetUserName, getAnswer, congratulate,
+} from '../cli.js';
 
-export default (user) => {
+export default () => {
+  const user = greetAndGetUserName();
+
+  console.log('What is the result of the expression?\n');
+
   let counter = 0;
   while (counter < 3) {
     const firstNumber = getRandomInteger(20);
@@ -17,11 +21,12 @@ export default (user) => {
 
     console.log(`Question: ${expression}`);
 
-    const userAnswer = Number(readlineSync.question('Your answer: '));
+    const userAnswer = Number(getAnswer());
     const isRightAnswer = correctAnswer === userAnswer;
     consoleMessage(isRightAnswer, correctAnswer, userAnswer, user);
     counter = isRightAnswer
       ? counter += 1
       : 0;
   }
+  congratulate(user);
 };

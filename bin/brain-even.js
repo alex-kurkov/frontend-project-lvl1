@@ -3,7 +3,7 @@ import {
   getUserName,
   greetUser,
 } from '../src/cli.js';
-import evenQuiz from '../games/evenQuiz.js';
+import evenQuiz from '../src/games/even.js';
 
 console.log('Welcome to the Brain Games!');
 const userName = getUserName();

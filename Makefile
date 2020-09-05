@@ -1,22 +1,23 @@
 install:
-	@npm install
+	npm install
 
 publish:
 	npm publish --dry-run
 
 brain-games:
-	node games/brain-games.js
+	node bin/brain-games.js
 
 brain-even:
-	node games/brain-even.js
+	node bin/brain-even.js
 
 brain-calc:
-	node games/brain-calc.js
+	node bin/brain-calc.js
 
-link:
-	npm link
+brain-gdc:
+	node bin/brain-gdc.js
+
+brain-progression:
+	node bin/brain-progression.js
 
 lint:
-	npx eslint
-
-.PHONEY: test
+	npx eslint ./

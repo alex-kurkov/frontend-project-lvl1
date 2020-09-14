@@ -1,12 +1,7 @@
-import {
-  getRandomInteger, consoleMessage,
-} from '../index.js';
-import {
-  greetAndGetUserName, getAnswer, congratulate,
-} from '../cli.js';
+import startGame from '../index.js';
+import getRandomInteger from '../utils/getRandomInteger.js';
 
 const progressionLength = 10;
-
 const makeProgression = () => {
   const initNumber = getRandomInteger(15);
   const arr = [initNumber];
@@ -16,7 +11,6 @@ const makeProgression = () => {
   }
   return arr;
 };
-
 const makeQuestionString = (progression, hiddenIndex) => {
   const head = progression
     .slice(0, hiddenIndex)
@@ -28,25 +22,15 @@ const makeQuestionString = (progression, hiddenIndex) => {
 };
 
 export default () => {
-  const user = greetAndGetUserName();
-
-  console.log('What number is missing in the progression?');
-
-  let counter = 0;
-  while (counter < 3) {
-    const progression = makeProgression();
-    const hiddenIndex = getRandomInteger(progressionLength) - 1;
-    const stringToShow = makeQuestionString(progression, hiddenIndex);
-    const correctAnswer = progression[hiddenIndex];
-
-    console.log(`Question: ${stringToShow}`);
-
-    const userAnswer = Number(getAnswer());
-    const isRightAnswer = correctAnswer === userAnswer;
-    consoleMessage(isRightAnswer, correctAnswer, userAnswer, user);
-    counter = isRightAnswer
-      ? counter += 1
-      : 0;
-  }
-  congratulate(user);
+  startGame({
+    quizTask: 'What number is missing in the progression?',
+    userAnswerIsNumber: true,
+    gameLogicHandler: () => {
+      const progression = makeProgression();
+      const hiddenIndex = getRandomInteger(progressionLength) - 1;
+      const stringToShow = makeQuestionString(progression, hiddenIndex);
+      const correctAnswer = progression[hiddenIndex];
+      return { correctAnswer, question: `Question: ${stringToShow}` };
+    },
+  });
 };

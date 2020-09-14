@@ -1,6 +1,20 @@
-export const getRandomInteger = (upperLimit = 100) => Math.ceil(Math.random() * upperLimit);
+import readlineSync from 'readline-sync';
 
-export const consoleMessage = (isRightAnswer, correctAnswer, userAnswer, userName) => {
+const greetAndGetUserName = () => {
+  console.log('Welcome to the Brain Games!');
+  const user = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${user}!`);
+  return user;
+};
+
+const getAnswer = () => {
+  const answer = readlineSync.question('Your answer: ');
+  return answer;
+};
+
+const congratulate = (user) => console.log(`Congratulations, ${user}!`);
+
+const consoleMessage = (isRightAnswer, correctAnswer, userAnswer, userName) => {
   switch (isRightAnswer) {
     case true:
       console.log('Correct!');
@@ -10,13 +24,26 @@ export const consoleMessage = (isRightAnswer, correctAnswer, userAnswer, userNam
   }
 };
 
-export const getRandomOperation = () => {
-  switch (getRandomInteger(3)) {
-    case 1:
-      return '+';
-    case 2:
-      return '-';
-    default:
-      return '*';
+export default ({ quizTask, gameLogicHandler, userAnswerIsNumber }) => {
+  const user = greetAndGetUserName();
+
+  console.log(quizTask);
+
+  let counter = 0;
+  while (counter < 3) {
+    const { correctAnswer, question } = gameLogicHandler();
+
+    console.log(question);
+
+    const userAnswer = userAnswerIsNumber
+      ? Number(getAnswer())
+      : getAnswer();
+
+    const isRightAnswer = correctAnswer === userAnswer;
+    consoleMessage(isRightAnswer, correctAnswer, userAnswer, user);
+    counter = isRightAnswer
+      ? counter += 1
+      : 0;
   }
+  congratulate(user);
 };

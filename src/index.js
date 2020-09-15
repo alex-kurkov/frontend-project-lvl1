@@ -1,51 +1,41 @@
 import readlineSync from 'readline-sync';
 
-const greetAndGetUserName = () => {
+export default ({ quizTask, gameLogicHandler, userAnswerIsNumber }) => {
+  // intro greeting + get user name + console quiz task
   console.log('Welcome to the Brain Games!');
   const user = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${user}!`);
-  return user;
-};
-
-const getAnswer = () => {
-  const answer = readlineSync.question('Your answer: ');
-  return answer;
-};
-
-const congratulate = (user) => console.log(`Congratulations, ${user}!`);
-
-const consoleMessage = (isRightAnswer, correctAnswer, userAnswer, userName) => {
-  switch (isRightAnswer) {
-    case true:
-      console.log('Correct!');
-      break;
-    default:
-      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${correctAnswer}".\nLet's try again, ${userName}!`);
-  }
-};
-
-export default ({ quizTask, gameLogicHandler, userAnswerIsNumber }) => {
-  const user = greetAndGetUserName();
-
   console.log(quizTask);
 
+  // main game engine
   let counter = 0;
   while (counter < 3) {
     const { correctAnswer, question } = gameLogicHandler();
 
+    // console quiz question
     console.log(question);
 
-    const userAnswer = getAnswer();
-
+    // get and modify user answer
+    const userAnswer = readlineSync.question('Your answer: ');
     const userAnswerModified = userAnswerIsNumber // to cover NaN case for consoleMessage()...
       ? Number(userAnswer)
       : userAnswer;
-
+    // define Correctness
     const isRightAnswer = correctAnswer === userAnswerModified;
-    consoleMessage(isRightAnswer, correctAnswer, userAnswer, user);
+
+    // console Result
+    switch (isRightAnswer) {
+      case true:
+        console.log('Correct!');
+        break;
+      default:
+        console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${correctAnswer}".\nLet's try again, ${userName}!`);
+    }
+    // handle quiz success counter
     counter = isRightAnswer
       ? counter += 1
       : 0;
   }
-  congratulate(user);
+  // congratulate on completion
+  console.log(`Congratulations, ${user}!`);
 };

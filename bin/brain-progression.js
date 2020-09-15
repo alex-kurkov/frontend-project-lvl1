@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import progressionQuiz from '../src/games/progression.js';
+import init from '../src/games/progression.js';
 
-progressionQuiz();
+init();

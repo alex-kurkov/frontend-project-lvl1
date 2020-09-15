@@ -35,11 +35,13 @@ export default ({ quizTask, gameLogicHandler, userAnswerIsNumber }) => {
 
     console.log(question);
 
-    const userAnswer = userAnswerIsNumber
-      ? Number(getAnswer())
-      : getAnswer();
+    const userAnswer = getAnswer();
 
-    const isRightAnswer = correctAnswer === userAnswer;
+    const userAnswerModified = userAnswerIsNumber // to cover NaN case for consoleMessage()...
+      ? Number(userAnswer)
+      : userAnswer;
+
+    const isRightAnswer = correctAnswer === userAnswerModified;
     consoleMessage(isRightAnswer, correctAnswer, userAnswer, user);
     counter = isRightAnswer
       ? counter += 1

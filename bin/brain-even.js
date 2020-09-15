@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import evenQuiz from '../src/games/even.js';
+import init from '../src/games/even.js';
 
-evenQuiz();
+init();

@@ -29,7 +29,7 @@ export default ({ quizTask, gameLogicHandler, userAnswerIsNumber }) => {
         console.log('Correct!');
         break;
       default:
-        console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${correctAnswer}".\nLet's try again, ${userName}!`);
+        console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${correctAnswer}".\nLet's try again, ${user}!`);
     }
     // handle quiz success counter
     counter = isRightAnswer

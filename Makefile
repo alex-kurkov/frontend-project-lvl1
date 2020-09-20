@@ -20,4 +20,4 @@ brain-progression:
 	node bin/brain-progression.js
 
 lint:
-	npx eslint ./
+	npx eslint .

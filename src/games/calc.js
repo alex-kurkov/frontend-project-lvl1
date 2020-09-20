@@ -1,30 +1,34 @@
 import startGame from '../index.js';
-import getRandomInteger from '../utils/getRandomInteger.js';
+import getRandomIntegerFromRange from '../utils/getRandomIntegerFromRange.js';
 
-const getRandomOperation = () => {
-  switch (getRandomInteger(3)) {
-    case 1:
-      return '+';
-    case 2:
-      return '-';
+const operators = ['+', '-', '*'];
+
+const getRandomOperation = () => operators[getRandomIntegerFromRange(0, operators.length - 1)];
+
+const getCorrectAnswer = (num1, num2, operator) => {
+  switch (operator) {
+    case '-':
+      return num1 - num2;
+    case '+':
+      return num1 + num2;
+    case '*':
+      return num1 * num2;
     default:
-      return '*';
+      return new Error('Invalid operator parameter');
   }
 };
 
 export default () => {
   startGame({
     quizTask: 'What is the result of the expression?',
-    userAnswerIsNumber: true,
     gameLogicHandler: () => {
-      const firstNumber = getRandomInteger(20);
-      const secondNumber = getRandomInteger(10);
-      const operation = getRandomOperation();
-      const expression = `${firstNumber} ${operation} ${secondNumber}`;
-      // eslint-disable-next-line no-eval
-      const correctAnswer = eval(expression);
+      const firstNumber = getRandomIntegerFromRange(1, 20);
+      const secondNumber = getRandomIntegerFromRange(1, 10);
+      const operator = getRandomOperation();
+      const expression = `${firstNumber} ${operator} ${secondNumber}`;
+      const correctAnswer = String(getCorrectAnswer(firstNumber, secondNumber, operator));
 
-      return { correctAnswer, question: `Question: ${expression}` };
+      return { correctAnswer, question: expression };
     },
   });
 };

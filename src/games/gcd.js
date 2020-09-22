@@ -1,5 +1,5 @@
 import startGame from '../index.js';
-import getRandomIntegerFromRange from '../utils/getRandomIntegerFromRange.js';
+import getRandomIntFromRange from '../utils/getRandomIntFromRange.js';
 
 const getGcd = (firstNum, secondNum) => {
   if (firstNum === 0 && secondNum === 0) return null;
@@ -12,13 +12,10 @@ const getGcd = (firstNum, secondNum) => {
 };
 
 export default () => {
-  startGame({
-    quizTask: 'Find the greatest common divisor of given numbers.',
-    gameLogicHandler: () => {
-      const firstNumber = getRandomIntegerFromRange(0, 50);
-      const secondNumber = getRandomIntegerFromRange(0, 100);
-      const correctAnswer = String(getGcd(firstNumber, secondNumber));
-      return { correctAnswer, question: `${firstNumber} ${secondNumber}` };
-    },
+  startGame('Find the greatest common divisor of given numbers.', () => {
+    const firstNumber = getRandomIntFromRange(0, 50);
+    const secondNumber = getRandomIntFromRange(0, 100);
+    const correctAnswer = String(getGcd(firstNumber, secondNumber));
+    return { correctAnswer, question: `${firstNumber} ${secondNumber}` };
   });
 };

@@ -1,5 +1,5 @@
 import startGame from '../index.js';
-import getRandomIntegerFromRange from '../utils/getRandomIntegerFromRange.js';
+import getRandomIntFromRange from '../utils/getRandomIntFromRange.js';
 
 const isPrime = (n) => {
   if (n <= 1) return false;
@@ -10,12 +10,9 @@ const isPrime = (n) => {
 };
 
 export default () => {
-  startGame({
-    quizTask: 'Answer "yes" if given number is prime. Otherwise answer "no"',
-    gameLogicHandler: () => {
-      const randomNumber = getRandomIntegerFromRange(1, 120);
-      const correctAnswer = isPrime(randomNumber) ? 'yes' : 'no';
-      return { correctAnswer, question: randomNumber };
-    },
+  startGame('Answer "yes" if given number is prime. Otherwise answer "no"', () => {
+    const randomNumber = getRandomIntFromRange(1, 120);
+    const correctAnswer = isPrime(randomNumber) ? 'yes' : 'no';
+    return { correctAnswer, question: randomNumber };
   });
 };

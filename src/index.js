@@ -1,14 +1,13 @@
 import readlineSync from 'readline-sync';
 
-export default ({ quizTask, gameLogicHandler }) => {
+export default (taskDescription, genRoundData) => {
   console.log('Welcome to the Brain Games!');
   const user = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${user}!`);
-  console.log(quizTask);
+  console.log(taskDescription);
 
-  let counter = 0;
-  while (counter < 3) {
-    const { correctAnswer, question } = gameLogicHandler();
+  for (let i = 1; i <= 3; i += 1) {
+    const { correctAnswer, question } = genRoundData();
     console.log(`Question: ${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
     const isRightAnswer = correctAnswer === userAnswer;
@@ -16,9 +15,8 @@ export default ({ quizTask, gameLogicHandler }) => {
       console.log('Correct!');
     } else {
       console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${correctAnswer}".\nLet's try again, ${user}!`);
+      return new Error('Invalid answer. Game over');
     }
-    counter = isRightAnswer ? counter += 1 : 0;
   }
-
-  console.log(`Congratulations, ${user}!`);
+  return console.log(`Congratulations, ${user}!`);
 };

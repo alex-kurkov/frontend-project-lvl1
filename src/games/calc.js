@@ -1,9 +1,9 @@
 import startGame from '../index.js';
-import getRandomIntegerFromRange from '../utils/getRandomIntegerFromRange.js';
+import getRandomIntFromRange from '../utils/getRandomIntFromRange.js';
 
 const operators = ['+', '-', '*'];
 
-const getRandomOperation = () => operators[getRandomIntegerFromRange(0, operators.length - 1)];
+const getRandomItem = (array) => array[getRandomIntFromRange(0, array.length - 1)];
 
 const getCorrectAnswer = (num1, num2, operator) => {
   switch (operator) {
@@ -19,16 +19,13 @@ const getCorrectAnswer = (num1, num2, operator) => {
 };
 
 export default () => {
-  startGame({
-    quizTask: 'What is the result of the expression?',
-    gameLogicHandler: () => {
-      const firstNumber = getRandomIntegerFromRange(1, 20);
-      const secondNumber = getRandomIntegerFromRange(1, 10);
-      const operator = getRandomOperation();
-      const expression = `${firstNumber} ${operator} ${secondNumber}`;
-      const correctAnswer = String(getCorrectAnswer(firstNumber, secondNumber, operator));
+  startGame('What is the result of the expression?', () => {
+    const firstNumber = getRandomIntFromRange(1, 20);
+    const secondNumber = getRandomIntFromRange(1, 10);
+    const operator = getRandomItem(operators);
+    const expression = `${firstNumber} ${operator} ${secondNumber}`;
+    const correctAnswer = String(getCorrectAnswer(firstNumber, secondNumber, operator));
 
-      return { correctAnswer, question: expression };
-    },
+    return { correctAnswer, question: expression };
   });
 };

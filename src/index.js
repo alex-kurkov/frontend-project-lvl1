@@ -14,9 +14,10 @@ export default (taskDescription, genRoundData) => {
     if (isRightAnswer) {
       console.log('Correct!');
     } else {
-      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${correctAnswer}".\nLet's try again, ${user}!`);
-      return new Error('Invalid answer. Game over');
+      console.log(`"${userAnswer}" is wrong answer ;(. Correct answer was "${correctAnswer}".`);
+      console.log(`Let's try again, ${user}!`);
+      return;
     }
   }
-  return console.log(`Congratulations, ${user}!`);
+  console.log(`Congratulations, ${user}!`);
 };

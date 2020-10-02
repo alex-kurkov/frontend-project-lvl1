@@ -1,21 +1,23 @@
-import startGame from '../index.js';
+import playGame from '../index.js';
 import getRandomIntFromRange from '../utils/getRandomIntFromRange.js';
 
 const getGcd = (firstNum, secondNum) => {
   if (firstNum === 0 && secondNum === 0) return null;
-  let devisor = Math.min(firstNum, secondNum);
-  while (devisor > 1) {
-    if ((firstNum % devisor === 0) && (secondNum % devisor === 0)) return devisor;
-    devisor -= 1;
+  let devider = Math.min(firstNum, secondNum);
+  while (devider > 1) {
+    if ((firstNum % devider === 0) && (secondNum % devider === 0)) return devider;
+    devider -= 1;
   }
-  return devisor;
+  return devider;
 };
 
 export default () => {
-  startGame('Find the greatest common divisor of given numbers.', () => {
+  const taskDescription = 'Find the greatest common divisor of given numbers.';
+  const generateRoundData = () => {
     const firstNumber = getRandomIntFromRange(0, 50);
     const secondNumber = getRandomIntFromRange(0, 100);
     const correctAnswer = String(getGcd(firstNumber, secondNumber));
     return { correctAnswer, question: `${firstNumber} ${secondNumber}` };
-  });
+  };
+  playGame(taskDescription, generateRoundData);
 };

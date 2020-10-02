@@ -1,24 +1,33 @@
-import startGame from '../index.js';
+import playGame from '../index.js';
 import getRandomIntFromRange from '../utils/getRandomIntFromRange.js';
 
-const makeProgression = (firstElem, step, length) => {
-  const arr = [firstElem];
-  for (let i = 1; i < length; i += 1) {
-    arr.push(firstElem + (step * i));
+const makeProgression = (startNumber, step, length) => {
+  const arr = [];
+  for (let i = 0; i < length; i += 1) {
+    arr.push(startNumber + (step * i));
   }
   return arr;
 };
-const PROGRESSION_LENGTH = 10;
 
 export default () => {
-  startGame('What number is missing in the progression?', () => {
+  const taskDescription = 'What number is missing in the progression?';
+  const progressionParams = {
+    startNumberFrom: 0,
+    startNumberTo: 20,
+    stepNumberFrom: 2,
+    stepNumberTo: 9,
+    progressionLength: 10,
+  };
+  const generateRoundData = () => {
     const progression = makeProgression(
-      getRandomIntFromRange(0, 20),
-      getRandomIntFromRange(2, 9),
-      PROGRESSION_LENGTH,
+      getRandomIntFromRange(progressionParams.startNumberFrom, progressionParams.startNumberTo),
+      getRandomIntFromRange(progressionParams.stepNumberFrom, progressionParams.stepNumberTo),
+      progressionParams.progressionLength,
     );
-    const idxHidden = getRandomIntFromRange(0, PROGRESSION_LENGTH - 1);
+    const idxHidden = getRandomIntFromRange(0, progressionParams.progressionLength - 1);
     const correctAnswer = String(progression.splice(idxHidden, 1, '..'));
     return { correctAnswer, question: progression.join(' ') };
-  });
+  };
+
+  playGame(taskDescription, generateRoundData);
 };

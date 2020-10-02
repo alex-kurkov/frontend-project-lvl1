@@ -6,11 +6,9 @@ env:
   node: true
   es2020: true
 
-extends: 
+extends:
   - airbnb-base
 
 rules:
   no-console: off
   import/extensions: off
-  linebreak-style: off
-  no-underscore-dangle: off

@@ -1,4 +1,4 @@
-import startGame from '../index.js';
+import playGame from '../index.js';
 import getRandomIntFromRange from '../utils/getRandomIntFromRange.js';
 
 const operators = ['+', '-', '*'];
@@ -19,13 +19,14 @@ const getCorrectAnswer = (num1, num2, operator) => {
 };
 
 export default () => {
-  startGame('What is the result of the expression?', () => {
+  const taskDescription = 'What is the result of the expression?';
+  const generateRoundData = () => {
     const firstNumber = getRandomIntFromRange(1, 20);
     const secondNumber = getRandomIntFromRange(1, 10);
     const operator = getRandomItem(operators);
     const expression = `${firstNumber} ${operator} ${secondNumber}`;
     const correctAnswer = String(getCorrectAnswer(firstNumber, secondNumber, operator));
-
     return { correctAnswer, question: expression };
-  });
+  };
+  playGame(taskDescription, generateRoundData);
 };

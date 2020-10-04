@@ -1,6 +1,7 @@
 import playGame from '../index.js';
 import getRandomIntFromRange from '../utils/getRandomIntFromRange.js';
 
+const taskDescription = 'Find the greatest common divisor of given numbers.';
 const getGcd = (firstNum, secondNum) => {
   if (firstNum === 0 && secondNum === 0) return null;
   let devider = Math.min(firstNum, secondNum);
@@ -10,14 +11,11 @@ const getGcd = (firstNum, secondNum) => {
   }
   return devider;
 };
-
-export default () => {
-  const taskDescription = 'Find the greatest common divisor of given numbers.';
-  const generateRoundData = () => {
-    const firstNumber = getRandomIntFromRange(0, 50);
-    const secondNumber = getRandomIntFromRange(0, 100);
-    const correctAnswer = String(getGcd(firstNumber, secondNumber));
-    return { correctAnswer, question: `${firstNumber} ${secondNumber}` };
-  };
-  playGame(taskDescription, generateRoundData);
+const generateRoundData = () => {
+  const firstNumber = getRandomIntFromRange(0, 50);
+  const secondNumber = getRandomIntFromRange(0, 100);
+  const correctAnswer = String(getGcd(firstNumber, secondNumber));
+  return { correctAnswer, question: `${firstNumber} ${secondNumber}` };
 };
+
+export default () => playGame(taskDescription, generateRoundData);

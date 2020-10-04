@@ -1,10 +1,9 @@
 import playGame from '../index.js';
 import getRandomIntFromRange from '../utils/getRandomIntFromRange.js';
 
+const taskDescription = 'What is the result of the expression?';
 const operators = ['+', '-', '*'];
-
 const getRandomItem = (array) => array[getRandomIntFromRange(0, array.length - 1)];
-
 const getCorrectAnswer = (num1, num2, operator) => {
   switch (operator) {
     case '-':
@@ -18,15 +17,18 @@ const getCorrectAnswer = (num1, num2, operator) => {
   }
 };
 
-export default () => {
-  const taskDescription = 'What is the result of the expression?';
-  const generateRoundData = () => {
-    const firstNumber = getRandomIntFromRange(1, 20);
-    const secondNumber = getRandomIntFromRange(1, 10);
-    const operator = getRandomItem(operators);
-    const expression = `${firstNumber} ${operator} ${secondNumber}`;
-    const correctAnswer = String(getCorrectAnswer(firstNumber, secondNumber, operator));
-    return { correctAnswer, question: expression };
-  };
-  playGame(taskDescription, generateRoundData);
+const firstNumberFrom = 1;
+const firstNumberTo = 20;
+const secondNumberFrom = 1;
+const secondNumberTo = 10;
+
+const generateRoundData = () => {
+  const firstNumber = getRandomIntFromRange(firstNumberFrom, firstNumberTo);
+  const secondNumber = getRandomIntFromRange(secondNumberFrom, secondNumberTo);
+  const operator = getRandomItem(operators);
+  const expression = `${firstNumber} ${operator} ${secondNumber}`;
+  const correctAnswer = String(getCorrectAnswer(firstNumber, secondNumber, operator));
+  return { correctAnswer, question: expression };
 };
+
+export default () => playGame(taskDescription, generateRoundData);

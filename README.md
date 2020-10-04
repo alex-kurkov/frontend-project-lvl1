@@ -17,26 +17,25 @@ The player will go through 3 round of questions within one game and shoult type 
 The player wins after giving 3 correct answers consecutively, while the game ends if incorrect answer is given.
 
 
-1. **Brain-even game**
+#1. **Brain-even game**
 Answer if the present number is even or not by typing either 'yes' or 'no'
 (see gaming process at [ASCIINEMA](https://asciinema.org/a/sKIRnD0nmO0w6rZO6oV8mwfcS))
 
-2. **Brain-calc arithmetics game**
+#2. **Brain-calc arithmetics game**
 Evaluate simple arithmetic operation and type correct number
 (see gaming process at [ASCIINEMA](https://asciinema.org/a/GL2o1epf6ZAM7eT8TM3Pqtzuh))
 
-3. **'Find greatest common divisor game'**
+#3. **'Find greatest common divisor game'**
 Find and type greatest common divisor of two present integers
 (see gaming process at [ASCIINEMA](https://asciinema.org/a/qxRgVpbSoSfWauzrzpAUh1hLh))
 
-4. **'Missing number game'**
+#4. **'Missing number game'**
 Find the missing element of the given arithmetic progression
 (see gaming process at [ASCIINEMA](https://asciinema.org/a/EB3OQ9HDrlirvao5hlFgr46ck))
 
-5.**'Is Prime?' game**
+#5.**'Is Prime?' game**
 Answer if the given Number is prime by typing 'yes' or 'no'
 (see gaming process at [ASCIINEMA](https://asciinema.org/a/VUKaEm1fORDQ4olccZPKOEWWU))
-
 
 
 ### **Key features**

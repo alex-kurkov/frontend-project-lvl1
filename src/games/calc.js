@@ -16,7 +16,6 @@ const getCorrectAnswer = (num1, num2, operator) => {
       return new Error('Invalid operator parameter');
   }
 };
-
 const firstNumberFrom = 1;
 const firstNumberTo = 20;
 const secondNumberFrom = 1;

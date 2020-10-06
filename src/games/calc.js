@@ -16,14 +16,10 @@ const getCorrectAnswer = (num1, num2, operator) => {
       return new Error('Invalid operator parameter');
   }
 };
-const firstNumberFrom = 1;
-const firstNumberTo = 20;
-const secondNumberFrom = 1;
-const secondNumberTo = 10;
 
 const generateRoundData = () => {
-  const firstNumber = getRandomIntFromRange(firstNumberFrom, firstNumberTo);
-  const secondNumber = getRandomIntFromRange(secondNumberFrom, secondNumberTo);
+  const firstNumber = getRandomIntFromRange(1, 20);
+  const secondNumber = getRandomIntFromRange(1, 10);
   const operator = getRandomItem(operators);
   const expression = `${firstNumber} ${operator} ${secondNumber}`;
   const correctAnswer = String(getCorrectAnswer(firstNumber, secondNumber, operator));

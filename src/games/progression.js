@@ -9,14 +9,14 @@ const makeProgression = (firstElement, step, length) => {
   }
   return arr;
 };
+
 const progressionLength = 10;
-const firstElementFrom = 0;
-const firstElementTo = 20;
-const stepNumberFrom = 2;
-const stepNumberTo = 9;
+const firstProgressionElement = getRandomIntFromRange(0, 10);
+const progressionStep = getRandomIntFromRange(2, 9);
+
 const progression = makeProgression(
-  getRandomIntFromRange(firstElementFrom, firstElementTo),
-  getRandomIntFromRange(stepNumberFrom, stepNumberTo),
+  firstProgressionElement,
+  progressionStep,
   progressionLength,
 );
 

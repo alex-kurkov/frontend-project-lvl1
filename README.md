@@ -17,16 +17,16 @@ The player will go through 3 round of questions within one game and shoult type 
 The player wins after giving 3 correct answers consecutively, while the game ends if incorrect answer is given.
 
 To begin the game, run these consecutive commands in terminal:
-1. Clone repository to your directory with command    *git clone https://github.com/alex-kurkov/frontend-project-lvl1.git*
-2. Run       *cd frontend-project-lvl1/*
-3. Run       *npm install*
-4. Run       *npm link*
+1. Clone repository to your directory with command    **git clone https://github.com/alex-kurkov/frontend-project-lvl1.git**
+2. Run       **cd frontend-project-lvl1/**
+3. Run       **npm install**
+4. Run       **npm link**
 5. Run  specific commands for different games:
-      -. *brain-even* for Brain-even game
-      -. *brain-calc* for Brain-calc arithmetics game
-      -. *brain-gcd* for 'Find greatest common divisor game'
-      -. *brain-progression* for 'Missing number game'
-      -. *brain-prime* for 'Is Prime?' game
+*. **brain-even** for Brain-even game
+*. **brain-calc** for Brain-calc arithmetics game
+*. **brain-gcd** for 'Find greatest common divisor game'
+*. **brain-progression** for 'Missing number game'
+*. **brain-prime** for 'Is Prime?' game
 
 #1. **Brain-even game**
 Answer if the present number is even or not by typing either 'yes' or 'no'

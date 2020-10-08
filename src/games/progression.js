@@ -9,22 +9,22 @@ const makeProgression = (firstElement, step, length) => {
   }
   return arr;
 };
-
 const progressionLength = 10;
-const firstProgressionElement = getRandomIntFromRange(0, 10);
-const progressionStep = getRandomIntFromRange(2, 9);
-
-const progression = makeProgression(
-  firstProgressionElement,
-  progressionStep,
-  progressionLength,
-);
 
 const generateRoundData = () => {
-  const progressionInner = [...progression];
+  // перенес на этот уровень, чтобы генерировались разные прогрессии для 3
+  // последовательных вопросов
+  const first = getRandomIntFromRange(0, 10);
+  const step = getRandomIntFromRange(2, 9);
+  const progression = makeProgression(
+    first,
+    step,
+    progressionLength,
+  );
   const idxHidden = getRandomIntFromRange(0, progressionLength - 1);
-  const correctAnswer = String(progressionInner.splice(idxHidden, 1, '..'));
-  return { correctAnswer, question: progressionInner.join(' ') };
+  const correctAnswer = String(progression.splice(idxHidden, 1, '..'));
+  const question = progression.join(' ');
+  return { correctAnswer, question };
 };
 
 export default () => playGame(taskDescription, generateRoundData);

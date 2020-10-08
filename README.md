@@ -22,11 +22,11 @@ To begin the game, run these consecutive commands in terminal:
 3. Run       **npm install**
 4. Run       **npm link**
 5. Run  specific commands for different games:
-*. **brain-even** for Brain-even game
-*. **brain-calc** for Brain-calc arithmetics game
-*. **brain-gcd** for 'Find greatest common divisor game'
-*. **brain-progression** for 'Missing number game'
-*. **brain-prime** for 'Is Prime?' game
+> **brain-even** for Brain-even game
+> **brain-calc** for Brain-calc arithmetics game
+> **brain-gcd** for 'Find greatest common divisor game'
+> **brain-progression** for 'Missing number game'
+> **brain-prime** for 'Is Prime?' game
 
 #1. **Brain-even game**
 Answer if the present number is even or not by typing either 'yes' or 'no'
